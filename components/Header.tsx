@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Phone, Menu, X, PaintBucket } from 'lucide-react';
 
@@ -9,11 +9,11 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Credentials', href: '#credentials' },
-    { name: 'Careers', href: '#careers' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Portfolio', href: '/#portfolio' },
+    { name: 'Credentials', href: '/#credentials' },
+    { name: 'Terms & Policies', href: '/terms' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -21,41 +21,41 @@ export function Header() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center transition-transform group-hover:scale-105">
               <PaintBucket className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-sm font-bold text-foreground leading-tight font-serif">
+              <h1 className="text-sm font-bold text-foreground leading-tight font-serif group-hover:text-accent transition-colors">
                 Steel City Painting
               </h1>
-              <p className="text-xs text-muted-foreground">& Handyman Services</p>
+              <p className="text-xs text-muted-foreground">&amp; Handyman Services</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-foreground hover:text-accent transition-colors uppercase tracking-wider"
+                className="text-xs font-semibold text-foreground hover:text-accent transition-colors uppercase tracking-wider"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* CTA and Theme Switcher */}
           <div className="flex items-center gap-3">
-            <a
-              href="#contact"
-              className="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-accent text-white rounded-full text-sm font-medium hover:bg-accent-secondary transition-colors uppercase tracking-wider"
+            <Link
+              href="/#contact"
+              className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-accent text-white rounded-full text-xs font-semibold hover:bg-accent-secondary transition-colors uppercase tracking-wider shadow-sm shadow-accent/20"
             >
               Request Consultation
-            </a>
+            </Link>
             <ThemeSwitcher />
-            
+
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -76,22 +76,22 @@ export function Header() {
           <div className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="text-sm font-medium text-foreground hover:text-accent transition-colors py-2 uppercase tracking-wider"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#contact"
+              <Link
+                href="/#contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="flex items-center justify-center gap-2 px-4 py-3 bg-accent text-white rounded-lg text-sm font-medium hover:bg-accent-secondary transition-colors uppercase tracking-wider"
               >
                 Request Consultation
-              </a>
+              </Link>
               <a
                 href="tel:2897752020"
                 className="flex items-center justify-center gap-2 px-4 py-3 border border-accent text-accent rounded-lg text-sm font-medium hover:bg-accent hover:text-white transition-colors"

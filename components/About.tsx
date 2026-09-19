@@ -1,46 +1,50 @@
 'use client';
 
-import { Award, Users, Wrench, ShieldCheck, Briefcase } from 'lucide-react';
+import { Award, Wrench, ShieldCheck, UserCheck, Calendar } from 'lucide-react';
 
 const stats = [
-  { icon: Users, label: 'Distinguished Clients', value: '200+' },
-  { icon: Wrench, label: 'Projects Completed', value: '500+' },
-  { icon: Award, label: 'Years Experience', value: '15+' },
-  { icon: ShieldCheck, label: 'Licensed & Insured', value: '100%' },
+  { icon: Award, label: 'Years Hands-on Experience', value: '15+' },
+  { icon: UserCheck, label: 'Owner-Operated Focus', value: '100%' },
+  { icon: ShieldCheck, label: 'Liability Insured & WSIB', value: '$2M' },
+  { icon: Wrench, label: 'Craftsmanship Warranty', value: '2 Years' },
 ];
 
 const values = [
   {
-    title: 'Uncompromising Quality',
-    description: 'Every project receives master-level attention and precision craftsmanship, ensuring results that exceed expectations.',
+    title: 'Singular Accountability',
+    description: 'When you hire Steel City Painting, you work exclusively with Brent from your first in-home estimate through the final touch-up walkthrough. No strangers or unsupervised crews.',
   },
   {
-    title: 'Corporate Reliability',
-    description: 'Professional project management, clear communication, and deliverable excellence that business and residential clients trust.',
+    title: 'Clean In-Home Protocols',
+    description: 'We respect your living space. We utilize heavy leak-proof drop cloths, plastic containment sheeting, and HEPA-filtered vacuum sanders capturing 99.5% of drywall dust.',
   },
   {
-    title: 'Client Partnership',
-    description: 'We collaborate closely with clients to understand their vision and deliver solutions that align with their highest standards.',
+    title: '80% Prep / 20% Paint Philosophy',
+    description: 'Flawless paint starts underneath. We never paint over peeling substrates, open baseboard gaps, or drywall gouges. Every surface is scraped, filled, sanded smooth, and primed.',
   },
 ];
 
 export function About() {
   return (
-    <section id="about" className="py-20 sm:py-32 relative">
+    <section id="about" className="py-20 sm:py-32 relative bg-background">
       <div className="absolute inset-0 architectural-pattern -z-10 opacity-50" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs sm:text-sm font-semibold tracking-wide uppercase mb-3">
+            The Solo Contractor Difference
+          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 font-serif">
-            About <span className="text-accent">Steel City</span>
+            About <span className="text-accent">Steel City Painting</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Hamilton's premier property restoration and general contracting firm since 2023
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Founded on honest trade principles: one skilled craftsman taking the time to do residential painting and repairs right.
           </p>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        {/* Realistic Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16">
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
@@ -48,13 +52,13 @@ export function About() {
                 key={stat.label}
                 className="text-center p-6 rounded-2xl bg-card border border-border gold-border-thin"
               >
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-4 border border-accent/20">
+                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-3 border border-accent/20">
                   <Icon className="w-6 h-6 text-accent" />
                 </div>
-                <div className="text-3xl font-bold text-foreground mb-1 font-serif">
+                <div className="text-2xl sm:text-3xl font-bold text-foreground mb-1 font-serif">
                   {stat.value}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-xs sm:text-sm text-muted-foreground">
                   {stat.label}
                 </div>
               </div>
@@ -62,19 +66,13 @@ export function About() {
           })}
         </div>
 
-        {/* Story */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            Steel City Painting & Handyman Services was founded in 2023 with a singular vision: 
-            to elevate property restoration and maintenance to an art form. As a master tradesman-led 
-            general contracting firm, we bring decades of expertise to every project, from historic 
-            home restoration to commercial property refurbishment.
+        {/* Founder Story & Approach */}
+        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Steel City Painting &amp; Handyman Services was established to bring personal craftsmanship back to home improvements. In an industry dominated by franchises that bid high and dispatch inexperienced, rotating sub-contractors, we believe homeowners deserve better.
           </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Our commitment to uncompromising quality and corporate-level reliability has established 
-            us as the trusted choice for discerning clients across Hamilton and the Greater Golden 
-            Horseshoe region. We approach every project with the precision and artistry that defines 
-            true craftsmanship.
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            As a master tradesman with over 15 years of hands-on experience, Brent personally handles every aspect of your project. By booking one project at a time, your home receives undivided attention, meticulous surface prep, and quiet, courteous service from start to finish.
           </p>
         </div>
 
@@ -83,36 +81,45 @@ export function About() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="p-6 rounded-2xl bg-card border border-border gold-border-thin hover:border-accent transition-colors"
+              className="p-6 sm:p-8 rounded-2xl bg-card border border-border gold-border-thin hover:border-accent transition-colors flex flex-col justify-between"
             >
-              <h3 className="text-xl font-bold text-foreground mb-3 font-serif">
-                {value.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {value.description}
-              </p>
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 font-serif">
+                  {value.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Careers CTA */}
-        <div id="careers" className="bg-card border border-border gold-border rounded-2xl p-8 sm:p-12 text-center">
-          <div className="w-16 h-16 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-6 border border-accent/20">
-            <Briefcase className="w-8 h-8 text-accent" />
+        {/* Solo Calendar & Booking Box */}
+        <div id="booking-info" className="bg-card border border-border gold-border rounded-2xl p-8 sm:p-12 text-center max-w-4xl mx-auto">
+          <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-5 border border-accent/20">
+            <Calendar className="w-7 h-7 text-accent" />
           </div>
           <h3 className="text-2xl font-bold text-foreground mb-3 font-serif">
-            Join Our Team of Craftsmen
+            Booking &amp; Calendar Availability
           </h3>
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            We're always seeking skilled tradespeople who share our commitment to excellence. 
-            If you're a master craftsman looking to join a premier contracting firm, we'd like to hear from you.
+          <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
+            Because Brent works as a solo craftsman and gives each client 100% undivided attention, calendar slots are limited. Projects are booked on a first-come basis with an in-home written estimate and a 25% scheduling deposit.
           </p>
-          <a
-            href="mailto:careers@steelcityservices.ca"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-white rounded-lg text-base font-semibold hover:bg-accent-secondary transition-colors uppercase tracking-wider"
-          >
-            Inquire About Opportunities
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-accent text-white rounded-full text-sm font-semibold hover:bg-accent-secondary transition-colors uppercase tracking-wider shadow-md shadow-accent/20"
+            >
+              Check Calendar Availability
+            </a>
+            <a
+              href="/terms"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border border-border hover:border-accent text-foreground rounded-full text-sm font-medium transition-colors"
+            >
+              Review Contractor Terms
+            </a>
+          </div>
         </div>
       </div>
     </section>

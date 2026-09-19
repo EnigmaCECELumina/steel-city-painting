@@ -1,6 +1,7 @@
 'use client';
 
-import { Phone, Mail, MapPin, Clock, PaintBucket, Award, ShieldCheck, FileText } from 'lucide-react';
+import Link from 'next/link';
+import { Phone, Mail, MapPin, PaintBucket, Award, ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
 
 export function Footer() {
   const serviceAreas = [
@@ -14,30 +15,25 @@ export function Footer() {
     'Mississauga',
   ];
 
-  const businessHours = [
-    { day: 'Monday - Friday', hours: '8:00 AM - 6:00 PM' },
-    { day: 'Saturday', hours: '9:00 AM - 4:00 PM' },
-    { day: 'Sunday', hours: 'Closed' },
-  ];
-
   const credentials = [
     { icon: Award, text: 'Master Tradesman' },
-    { icon: ShieldCheck, text: 'Licensed & Insured' },
-    { icon: FileText, text: 'WSIB Compliant' },
+    { icon: ShieldCheck, text: 'Licensed & $2M Insured' },
+    { icon: FileText, text: 'WSIB Ontario Compliant' },
+    { icon: CheckCircle2, text: '2-Year Craftsmanship Guarantee' },
   ];
 
   return (
     <footer className="bg-card border-t border-border">
       {/* Credentials Bar */}
       <div className="bg-muted border-b border-border">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-wrap justify-center gap-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-5">
+          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
             {credentials.map((credential) => {
               const Icon = credential.icon;
               return (
                 <div key={credential.text} className="flex items-center gap-2">
-                  <Icon className="w-5 h-5 text-accent" />
-                  <span className="text-sm font-medium text-foreground">{credential.text}</span>
+                  <Icon className="w-4 h-4 text-accent" />
+                  <span className="text-xs sm:text-sm font-medium text-foreground">{credential.text}</span>
                 </div>
               );
             })}
@@ -57,17 +53,20 @@ export function Footer() {
                 <h3 className="text-sm font-bold text-foreground leading-tight font-serif">
                   Steel City Painting
                 </h3>
-                <p className="text-xs text-muted-foreground">& Handyman Services</p>
+                <p className="text-xs text-muted-foreground">&amp; Handyman Services</p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Hamilton's Premier Artistry in Restoration & Repair. Delivering uncompromising quality for discerning properties across Ontario since 2023.
+              Hamilton&apos;s Premier Solo Artistry in Restoration &amp; Repair. Master tradesman personally executing every interior repaint, cabinet refinishing, and surface repair across the Golden Horseshoe.
             </p>
+            <div className="pt-2 text-xs text-accent font-semibold">
+              Owner-Operated &bull; Free In-Home Written Estimates
+            </div>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground font-serif">Corporate Contact</h4>
+            <h4 className="text-lg font-semibold text-foreground font-serif">Contractor Direct Contact</h4>
             <div className="space-y-3">
               <a
                 href="tel:2897752020"
@@ -97,47 +96,68 @@ export function Footer() {
               {serviceAreas.map((area) => (
                 <span
                   key={area}
-                  className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full border border-border"
+                  className="px-3 py-1 bg-muted text-muted-foreground text-xs rounded-full border border-border"
                 >
                   {area}
                 </span>
               ))}
             </div>
+            <p className="text-xs text-muted-foreground pt-1">
+              Residential in-home services, light commercial &amp; rental turnovers.
+            </p>
           </div>
 
-          {/* Business Hours */}
+          {/* Policies & Contractor Standards */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground font-serif">Business Hours</h4>
-            <div className="space-y-2">
-              {businessHours.map((schedule) => (
-                <div key={schedule.day} className="flex items-start gap-3 text-sm">
-                  <Clock className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-foreground font-medium">{schedule.day}</p>
-                    <p className="text-muted-foreground">{schedule.hours}</p>
-                  </div>
-                </div>
-              ))}
+            <h4 className="text-lg font-semibold text-foreground font-serif">Contractor Policies</h4>
+            <div className="flex flex-col space-y-2 text-sm text-muted-foreground">
+              <Link href="/terms" className="hover:text-accent transition-colors flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                Terms of Service &amp; Agreement
+              </Link>
+              <Link href="/terms#payments" className="hover:text-accent transition-colors flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                Payment Terms &amp; Milestones
+              </Link>
+              <Link href="/terms#cancellations" className="hover:text-accent transition-colors flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                Cancellation &amp; Weather Policy
+              </Link>
+              <Link href="/terms#liability" className="hover:text-accent transition-colors flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                Liability Limits &amp; Disclaimers
+              </Link>
+              <Link href="/terms#safety-lead" className="hover:text-accent transition-colors flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                Safety &amp; Lead-Safe Protocols
+              </Link>
+              <Link href="/privacy" className="hover:text-accent transition-colors flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                Privacy Policy &amp; Photo Consent
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Steel City Painting & Handyman Services. All rights reserved.
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-muted-foreground">
+            <p>
+              &copy; {new Date().getFullYear()} Steel City Painting &amp; Handyman Services. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-accent transition-colors">
+            <div className="flex flex-wrap gap-5">
+              <Link href="/privacy" className="hover:text-accent transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-accent transition-colors">
+              </Link>
+              <Link href="/terms" className="hover:text-accent transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                Accessibility
-              </a>
+              </Link>
+              <Link href="/terms#liability" className="hover:text-accent transition-colors">
+                Liability Waivers
+              </Link>
+              <Link href="/terms#insurance-warranty" className="hover:text-accent transition-colors">
+                Insurance &amp; Warranty
+              </Link>
             </div>
           </div>
         </div>

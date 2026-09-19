@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState, useSyncExternalStore } from 'react';
 
 type Theme = 'slate-brass' | 'architectural-white' | 'stealth-onyx';
 
@@ -11,26 +11,33 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+const emptySubscribe = () => () => {};
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('slate-brass');
-  const [mounted, setMounted] = useState(false);
+  const isMounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
-  useEffect(() => {
-    setMounted(true);
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme && ['slate-brass', 'architectural-white', 'stealth-onyx'].includes(savedTheme)) {
-      setTheme(savedTheme);
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme') as Theme;
+      if (savedTheme && ['slate-brass', 'architectural-white', 'stealth-onyx'].includes(savedTheme)) {
+        return savedTheme;
+      }
     }
-  }, []);
+    return 'slate-brass';
+  });
 
   useEffect(() => {
-    if (mounted) {
+    if (isMounted) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
     }
-  }, [theme, mounted]);
+  }, [theme, isMounted]);
 
-  if (!mounted) {
+  if (!isMounted) {
     return null;
   }
 

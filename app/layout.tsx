@@ -18,10 +18,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Steel City Painting & Handyman Services | Hamilton's Premier General Contractor",
-  description: "Premier Artistry in Restoration & Repair for Hamilton Properties. Delivering Uncompromising Quality for Discerning Properties Across Ontario. Master Tradesman & General Contractor Services.",
-  keywords: ["Hamilton general contractor", "enterprise painting services", "luxury home restoration", "commercial property maintenance", "architectural painting", "custom millwork", "historic restoration", "Ontario general contractor", "Hamilton property restoration"],
-  authors: [{ name: "Steel City Painting & Handyman Services" }],
+  title: "Steel City Painting & Handyman Services | Solo Craftsman in Hamilton, ON",
+  description: "Residential interior painting, kitchen cabinet spray refinishing, and drywall repairs personally completed by master tradesman Brent in Hamilton & Greater Golden Horseshoe. Licensed & $2M Insured.",
+  keywords: ["Hamilton painter", "solo painting contractor", "cabinet spray refinishing Hamilton", "drywall repair Hamilton", "interior house painting Dundas", "Ancaster painter", "residential handyman Hamilton", "WSIB insured painter"],
+  authors: [{ name: "Brent - Steel City Painting" }],
   creator: "Steel City Painting & Handyman Services",
   publisher: "Steel City Painting & Handyman Services",
   formatDetection: {
@@ -37,22 +37,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_CA',
     url: 'https://steelcityservices.ca',
-    title: 'Steel City Painting & Handyman Services | Hamilton Premier General Contractor',
-    description: 'Premier Artistry in Restoration & Repair for Hamilton Properties. Delivering Uncompromising Quality for Discerning Properties Across Ontario.',
+    title: 'Steel City Painting & Handyman Services | Solo Craftsman in Hamilton, ON',
+    description: 'Residential interior painting, cabinet refinishing, and drywall repairs personally completed by master tradesman Brent. Licensed & $2M Insured.',
     siteName: 'Steel City Painting & Handyman Services',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Steel City Painting & Handyman Services - Hamilton Premier General Contractor',
+        alt: 'Steel City Painting & Handyman Services - Solo Craftsman in Hamilton, ON',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Steel City Painting & Handyman Services | Hamilton Premier General Contractor',
-    description: 'Premier Artistry in Restoration & Repair for Hamilton Properties. Delivering Uncompromising Quality for Discerning Properties Across Ontario.',
+    title: 'Steel City Painting & Handyman Services | Solo Craftsman in Hamilton, ON',
+    description: 'Residential interior painting, cabinet refinishing, and drywall repairs personally completed by master tradesman Brent. Licensed & $2M Insured.',
     images: ['/og-image.jpg'],
     creator: '@steelcityservices',
   },
