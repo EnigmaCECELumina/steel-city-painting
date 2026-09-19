@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --accent: #D4AF37;
-  --accent-secondary: #C5A059;
-  --accent-muted: #B8860B;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --border: #e4e4e7;
-  --card: #ffffff;
-  --card-foreground: #171717;
-  --gold-border: rgba(212, 175, 55, 0.3);
+  --background: #0c0d0e;
+  --foreground: #f9fafb;
+  --accent: #facc15;
+  --accent-secondary: #eab308;
+  --accent-muted: #facc15;
+  --muted: #16181b;
+  --muted-foreground: #a1a1aa;
+  --border: #27272a;
+  --card: #16181b;
+  --card-foreground: #f9fafb;
+  --gold-border: rgba(250, 204, 21, 0.45);
 }
 
 @theme inline {
@@ -26,103 +26,15 @@
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-gold-border: var(--gold-border);
-  --font-sans: var(--font-playfair-display);
+  --font-sans: var(--font-inter);
   --font-body: var(--font-inter);
 }
 
-/* Slate & Brass Theme (Default Dark - Premium Obsidian + Metallic Gold) */
-[data-theme="slate-brass"] {
-  --background: #0B0D10;
-  --foreground: #F8F9FA;
-  --accent: #D4AF37;
-  --accent-secondary: #C5A059;
-  --accent-muted: #B8860B;
-  --muted: #14171D;
-  --muted-foreground: #9CA3AF;
-  --border: #1F2937;
-  --card: #14171D;
-  --card-foreground: #F8F9FA;
-  --gold-border: rgba(212, 175, 55, 0.4);
-}
-
-/* Architectural White Theme (Light Mode - Clean Stone Grey + Brushed Bronze) */
-[data-theme="architectural-white"] {
-  --background: #F8F9FA;
-  --foreground: #1F2937;
-  --accent: #B8860B;
-  --accent-secondary: #9A7B0F;
-  --accent-muted: #8B7355;
-  --muted: #E5E7EB;
-  --muted-foreground: #6B7280;
-  --border: #D1D5DB;
-  --card: #FFFFFF;
-  --card-foreground: #1F2937;
-  --gold-border: rgba(184, 134, 11, 0.3);
-}
-
-/* Stealth Onyx Theme (Monochrome Dark - Charcoal + Muted Antique Gold) */
-[data-theme="stealth-onyx"] {
-  --background: #0A0A0A;
-  --foreground: #E5E5E5;
-  --accent: #8B7355;
-  --accent-secondary: #7A6548;
-  --accent-muted: #6B573B;
-  --muted: #1A1A1A;
-  --muted-foreground: #737373;
-  --border: #262626;
-  --card: #0D0D0D;
-  --card-foreground: #E5E5E5;
-  --gold-border: rgba(139, 115, 85, 0.3);
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body), sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Enterprise Glassmorphism utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--gold-border);
-}
-
-[data-theme="architectural-white"] .glass {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid var(--gold-border);
-}
-
-/* Gold border utility */
-.gold-border {
-  border: 1px solid var(--gold-border);
-}
-
-.gold-border-thin {
-  border: 0.5px solid var(--gold-border);
-}
-
-/* Geometric architectural pattern */
-.architectural-pattern {
-  background-image: 
-    linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.5;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Premium text shadows for headings */
-.premium-shadow {
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="architectural-white"] .premium-shadow {
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--background); color: var(--foreground); font-family: var(--font-body), sans-serif; }
+::selection { background: var(--accent); color: #0c0d0e; }
+.glass { background: rgba(12, 13, 14, 0.94); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
+.gold-border, .gold-border-thin { border: 1px solid var(--border); }
+.architectural-pattern { background-image: radial-gradient(rgba(250, 204, 21, 0.09) 1px, transparent 1px); background-size: 18px 18px; }
+.premium-shadow { text-shadow: none; }
