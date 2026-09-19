@@ -1,5 +1,119 @@
 'use client';
+
 import { useState } from 'react';
 import { CheckCircle, Loader2, Mail, Phone, Send, UploadCloud } from 'lucide-react';
-const services = ['Interior painting', 'Exterior painting or staining', 'Drywall or plaster repair', 'Trim, doors, or cabinets', 'General handyman repairs', 'Not sure yet'];
-export function ContactForm() { const [data, setData] = useState({ name: '', phone: '', email: '', area: '', service: '', details: '' }); const [file, setFile] = useState<File | null>(null); const [status, setStatus] = useState<'idle'|'success'|'error'>('idle'); const [loading, setLoading] = useState(false); const change = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) => setData({ ...data, [e.target.name]: e.target.value }); const submit = async (e: React.FormEvent) => { e.preventDefault(); setLoading(true); setStatus('idle'); const body = new FormData(); body.append('access_key', 'YOUR_WEB3FORMS_ACCESS_KEY'); body.append('subject', 'Estimate request - Steel City Painting And Handyman'); body.append('from_name', data.name); body.append('reply_to', data.email); body.append('phone', data.phone); body.append('area', data.area); body.append('service', data.service); body.append('project_details', data.details); if (file) body.append('attachment', file); try { const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body }); setStatus(response.ok ? 'success' : 'error'); if (response.ok) { setData({ name: '', phone: '', email: '', area: '', service: '', details: '' }); setFile(null); } } catch { setStatus('error'); } finally { setLoading(false); } }; const input = 'w-full px-4 py-3 bg-background border border-border text-white placeholder:text-zinc-500 focus:outline-none focus:border-accent'; return <section id="contact" className="py-20 sm:py-28 bg-background"><div className="container mx-auto px-4 sm:px-6 lg:px-8"><div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start"><div><p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">Talk directly with Brent</p><h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-5">Tell me what needs doing.</h2><p className="text-zinc-300 leading-relaxed mb-7">Send a few details—or text photos of the project. Brent will let you know what is realistic, what preparation may be involved, and the best next step.</p><div className="space-y-4 text-sm text-zinc-300"><a href="tel:2897752020" className="flex items-center gap-3 hover:text-accent"><Phone className="w-5 h-5 text-accent" />(289) 775-2020</a><a href="mailto:inquiries@steelcityservices.ca" className="flex items-center gap-3 hover:text-accent"><Mail className="w-5 h-5 text-accent" />inquiries@steelcityservices.ca</a></div></div><div className="bg-card border border-border p-6 sm:p-8">{status === 'success' ? <div className="py-12 text-center"><CheckCircle className="w-12 h-12 text-accent mx-auto mb-4" /><h3 className="text-2xl font-extrabold mb-3">Message received.</h3><p className="text-zinc-400">Thanks for reaching out. Brent will review the details and get back to you.</p></div> : <form onSubmit={submit} className="space-y-5"><div className="grid sm:grid-cols-2 gap-5"><input className={input} name="name" value={data.name} onChange={change} required placeholder="Your name *" /><input className={input} name="phone" value={data.phone} onChange={change} required placeholder="Phone number *" /></div><div className="grid sm:grid-cols-2 gap-5"><input className={input} type="email" name="email" value={data.email} onChange={change} required placeholder="Email address *" /><input className={input} name="area" value={data.area} onChange={change} required placeholder="Hamilton area / neighbourhood *" /></div><select className={input} name="service" value={data.service} onChange={change} required><option value="">What do you need help with? *</option>{services.map((service) => <option key={service}>{service}</option>)}</select><textarea className={input} name="details" value={data.details} onChange={change} required rows={5} placeholder="Tell Brent about the rooms, surfaces, repairs, or photos you have available. *" /><label className="flex items-center gap-3 border border-dashed border-zinc-600 p-4 cursor-pointer hover:border-accent"><UploadCloud className="w-5 h-5 text-accent" /><span className="text-sm text-zinc-300">{file ? file.name : 'Attach a project photo (optional)'}</span><input type="file" name="attachment" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="sr-only" /></label>{status === 'error' && <p className="text-sm text-red-400">The form could not be sent. Please call or email Brent directly.</p>}<button disabled={loading} className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-black font-extrabold hover:bg-white transition-colors">{loading ? <><Loader2 className="w-5 h-5 animate-spin" /> Sending...</> : <><Send className="w-5 h-5" /> Send estimate request</>}</button><p className="text-xs text-zinc-500">Your message and optional photo are sent to the business contact. No automated sales team.</p></form>}</div></div></div></section>; }
+
+const services = [
+  'Interior painting',
+  'Exterior painting or staining',
+  'Drywall or plaster repair',
+  'Trim, doors, or cabinets',
+  'General handyman repairs',
+  'Not sure yet',
+];
+
+export function ContactForm() {
+  const [data, setData] = useState({ name: '', phone: '', email: '', area: '', service: '', details: '' });
+  const [file, setFile] = useState<File | null>(null);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [loading, setLoading] = useState(false);
+
+  const change = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus('idle');
+
+    const body = new FormData();
+    body.append('access_key', 'YOUR_WEB3FORMS_ACCESS_KEY');
+    body.append('subject', 'Estimate request - Steel City Painting And Handyman');
+    body.append('from_name', data.name);
+    body.append('reply_to', data.email);
+    body.append('phone', data.phone);
+    body.append('area', data.area);
+    body.append('service', data.service);
+    body.append('project_details', data.details);
+    if (file) body.append('attachment', file);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body });
+      setStatus(response.ok ? 'success' : 'error');
+      if (response.ok) {
+        setData({ name: '', phone: '', email: '', area: '', service: '', details: '' });
+        setFile(null);
+      }
+    } catch {
+      setStatus('error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const input = 'w-full px-4 py-3 bg-background border border-border text-white placeholder:text-zinc-500 focus:outline-none focus:border-accent';
+
+  return (
+    <section id="contact" className="py-20 sm:py-28 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
+          <div>
+            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">Talk directly with Brent</p>
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-5">Tell me what needs doing.</h2>
+            <p className="text-zinc-300 leading-relaxed mb-7">
+              Send a few details—or text photos of the project. Brent will let you know what is realistic, what preparation may be involved, and the best next step.
+            </p>
+            <div className="space-y-4 text-sm text-zinc-300">
+              <a href="tel:2897752020" className="flex items-center gap-3 hover:text-accent"><Phone className="w-5 h-5 text-accent" />(289) 775-2020</a>
+              <a href="mailto:inquiries@steelcityservices.ca" className="flex items-center gap-3 hover:text-accent"><Mail className="w-5 h-5 text-accent" />inquiries@steelcityservices.ca</a>
+            </div>
+          </div>
+
+          <div className="bg-card border border-border p-6 sm:p-8">
+            {status === 'success' ? (
+              <div className="py-12 text-center">
+                <CheckCircle className="w-12 h-12 text-accent mx-auto mb-4" />
+                <h3 className="text-2xl font-extrabold mb-3">Message received.</h3>
+                <p className="text-zinc-400">Thanks for reaching out. Brent will review the details and get back to you.</p>
+              </div>
+            ) : (
+              <form onSubmit={submit} className="space-y-5">
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <input className={input} name="name" value={data.name} onChange={change} required placeholder="Your name *" />
+                  <input className={input} name="phone" value={data.phone} onChange={change} required placeholder="Phone number *" />
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <input className={input} type="email" name="email" value={data.email} onChange={change} required placeholder="Email address *" />
+                  <input className={input} name="area" value={data.area} onChange={change} required placeholder="Hamilton area / neighbourhood *" />
+                </div>
+
+                <select className={input} name="service" value={data.service} onChange={change} required>
+                  <option value="">What do you need help with? *</option>
+                  {services.map((service) => <option key={service}>{service}</option>)}
+                </select>
+
+                <textarea className={input} name="details" value={data.details} onChange={change} required rows={5} placeholder="Tell Brent about the rooms, surfaces, repairs, or photos you have available. *" />
+
+                <label className="flex items-center gap-3 border border-dashed border-zinc-600 p-4 cursor-pointer hover:border-accent">
+                  <UploadCloud className="w-5 h-5 text-accent" />
+                  <span className="text-sm text-zinc-300">{file ? file.name : 'Attach a project photo (optional)'}</span>
+                  <input type="file" name="attachment" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="sr-only" />
+                </label>
+
+                {status === 'error' && <p className="text-sm text-red-400">The form could not be sent. Please call or email Brent directly.</p>}
+
+                <button disabled={loading} className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-black font-extrabold hover:bg-white transition-colors">
+                  {loading ? <><Loader2 className="w-5 h-5 animate-spin" /> Sending...</> : <><Send className="w-5 h-5" /> Send estimate request</>}
+                </button>
+
+                <p className="text-xs text-zinc-500">Your message and optional photo are sent to the business contact. No automated sales team.</p>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

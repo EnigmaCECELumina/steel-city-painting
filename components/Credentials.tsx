@@ -1,5 +1,44 @@
 'use client';
+
 import { CheckCircle2, ClipboardCheck, HardHat, ShieldCheck, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-const credentials = [{ icon: HardHat, title: '15+ years in the field', text: 'Hands-on experience across painting, preparation, repairs, and occupied homes.' }, { icon: Sparkles, title: 'WHMIS certified', text: 'Safety-minded handling of products and a practical approach to ventilation and jobsite protection.' }, { icon: ShieldCheck, title: 'Respectful job sites', text: 'Floors, furniture, belongings, pets, and routines are treated with care.' }, { icon: ClipboardCheck, title: 'Written quotes', text: 'The work and expectations are discussed clearly before anything begins.' }, { icon: CheckCircle2, title: 'Daily cleanup', text: 'Tools and work areas are kept orderly so the project causes as little disruption as possible.' }];
-export function Credentials() { return <section id="credentials" className="py-20 sm:py-28 bg-background"><div className="container mx-auto px-4 sm:px-6 lg:px-8"><div className="max-w-2xl mb-12"><p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">How Brent works</p><h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">Professional without the performance.</h2><p className="text-lg text-zinc-300">Real experience, careful habits, and honest communication. If you need to confirm a specific credential or coverage, ask Brent directly.</p></div><div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">{credentials.map(({ icon: Icon, title, text }) => <div key={title} className="bg-card border border-border p-6"><Icon className="w-6 h-6 text-accent mb-5" /><h3 className="font-extrabold text-lg mb-2">{title}</h3><p className="text-sm text-zinc-400 leading-relaxed">{text}</p></div>)}</div><div className="mt-10 text-center"><Link href="/terms" className="font-bold text-accent underline underline-offset-4 hover:text-white">Read the service terms</Link></div></div></section>; }
+
+const credentials = [
+  { icon: HardHat, title: '15+ years in the field', text: 'Hands-on experience across painting, preparation, repairs, and occupied homes.' },
+  { icon: Sparkles, title: 'WHMIS certified', text: 'Safety-minded handling of products and a practical approach to ventilation and jobsite protection.' },
+  { icon: ShieldCheck, title: 'Respectful job sites', text: 'Floors, furniture, belongings, pets, and routines are treated with care.' },
+  { icon: ClipboardCheck, title: 'Written quotes', text: 'The work and expectations are discussed clearly before anything begins.' },
+  { icon: CheckCircle2, title: 'Daily cleanup', text: 'Tools and work areas are kept orderly so the project causes as little disruption as possible.' },
+];
+
+export function Credentials() {
+  return (
+    <section id="credentials" className="py-20 sm:py-28 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mb-12">
+          <p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">How Brent works</p>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">Professional without the performance.</h2>
+          <p className="text-lg text-zinc-300">
+            Real experience, careful habits, and honest communication. If you need to confirm a specific credential or coverage, ask Brent directly.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {credentials.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="bg-card border border-border p-6">
+              <Icon className="w-6 h-6 text-accent mb-5" />
+              <h3 className="font-extrabold text-lg mb-2">{title}</h3>
+              <p className="text-sm text-zinc-400 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link href="/terms" className="font-bold text-accent underline underline-offset-4 hover:text-white">
+            Read the service terms
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

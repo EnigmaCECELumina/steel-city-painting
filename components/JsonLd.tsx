@@ -10,8 +10,9 @@ export function JsonLd() {
     founder: { '@type': 'Person', name: 'Brent' },
     address: { '@type': 'PostalAddress', addressLocality: 'Hamilton', addressRegion: 'ON', addressCountry: 'CA' },
     areaServed: ['Hamilton', 'Ancaster', 'Dundas', 'Stoney Creek', 'Grimsby', 'Burlington', 'Oakville'],
-    serviceType: ['Interior painting', 'Exterior painting and staining', 'Drywall repair', 'Handyman services'],
+    serviceType: ['Residential painting', 'Exterior painting and staining', 'Drywall repair', 'Handyman services'],
     sameAs: [profile, 'https://www.yelp.ca/biz/steel-city-hamilton-4'],
   };
+
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />;
 }

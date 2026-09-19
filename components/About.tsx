@@ -1,4 +1,69 @@
 'use client';
+
 import { Calendar, CheckCircle2, Clock, UserRound } from 'lucide-react';
-const points = [{ title: 'Experience you can see', text: 'Brent has been painting and maintaining homes for more than 15 years. He knows where shortcuts show and where preparation matters.' }, { title: 'One point of contact', text: 'The person who discusses the work with you is the person responsible for doing it. Questions do not get lost between an office and a crew.' }, { title: 'Respect for your home', text: 'Floors, furniture, belongings, pets, and routines all matter. The goal is a well-finished job without leaving a mess behind.' }];
-export function About() { return <section id="about" className="py-20 sm:py-28 bg-background"><div className="container mx-auto px-4 sm:px-6 lg:px-8"><div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start"><div><p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">About Brent</p><h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-5">A small business with plenty of experience.</h2><p className="text-lg text-zinc-300 leading-relaxed">Steel City Painting & Handyman Services is built around a practical approach: listen carefully, explain the work, and take the time to leave it right.</p></div><div><p className="text-zinc-400 leading-relaxed mb-8">After years of working in homes, Brent understands that a contractor’s job is about more than paint on a wall. It is about showing up when promised, protecting the space, communicating when something changes, and treating people kindly.</p><div className="grid sm:grid-cols-3 gap-4">{points.map(({ title, text }) => <div key={title} className="border-t-4 border-accent bg-card p-5"><h3 className="font-extrabold mb-2">{title}</h3><p className="text-sm text-zinc-400 leading-relaxed">{text}</p></div>)}</div></div></div><div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">{[[Clock, '15+', 'years hands-on experience'], [UserRound, '1', 'person you deal with'], [CheckCircle2, 'Clear', 'scope before work starts'], [Calendar, 'By', 'appointment and availability']].map(([Icon, value, label]) => { const I = Icon as typeof Clock; return <div key={label as string} className="bg-card border border-border p-5"><I className="w-5 h-5 text-accent mb-4" /><div className="text-2xl font-extrabold">{value as string}</div><div className="text-xs text-zinc-400 mt-1">{label as string}</div></div>; })}</div></div></section>; }
+
+const points = [
+  {
+    title: 'Experience you can see',
+    text: 'Brent has been painting and maintaining homes for more than 15 years. He knows where shortcuts show and where preparation matters.',
+  },
+  {
+    title: 'One point of contact',
+    text: 'The person who discusses the work with you is the person responsible for doing it. Questions do not get lost between an office and a crew.',
+  },
+  {
+    title: 'Respect for your home',
+    text: 'Floors, furniture, belongings, pets, and routines all matter. The goal is a well-finished job without leaving a mess behind.',
+  },
+];
+
+export function About() {
+  return (
+    <section id="about" className="py-20 sm:py-28 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
+          <div>
+            <p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">About Brent</p>
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-5">A small business with plenty of experience.</h2>
+            <p className="text-lg text-zinc-300 leading-relaxed">
+              Steel City Painting & Handyman Services is built around a practical approach: listen carefully, explain the work, and take the time to leave it right.
+            </p>
+          </div>
+
+          <div>
+            <p className="text-zinc-400 leading-relaxed mb-8">
+              After years of working in homes, Brent understands that a contractor’s job is about more than paint on a wall. It is about showing up when promised, protecting the space, communicating when something changes, and treating people kindly.
+            </p>
+
+            <div className="grid sm:grid-cols-3 gap-4">
+              {points.map(({ title, text }) => (
+                <div key={title} className="border-t-4 border-accent bg-card p-5">
+                  <h3 className="font-extrabold mb-2">{title}</h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            [Clock, '15+', 'years hands-on experience'],
+            [UserRound, '1', 'person you deal with'],
+            [CheckCircle2, 'Clear', 'scope before work starts'],
+            [Calendar, 'By', 'appointment and availability'],
+          ].map(([Icon, value, label]) => {
+            const I = Icon as typeof Clock;
+            return (
+              <div key={label as string} className="bg-card border border-border p-5">
+                <I className="w-5 h-5 text-accent mb-4" />
+                <div className="text-2xl font-extrabold">{value as string}</div>
+                <div className="text-xs text-zinc-400 mt-1">{label as string}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -14,11 +14,28 @@ export const metadata: Metadata = {
   creator: "Steel City Painting And Handyman",
   metadataBase: new URL("https://steelcityservices.ca/"),
   alternates: { canonical: "/" },
-  openGraph: { type: "website", locale: "en_CA", url: "https://steelcityservices.ca/", title: "Steel City Painting And Handyman - Trusted House Painter", description: "15+ years of honest, owner-operated painting and handyman work in Hamilton, Ontario.", siteName: "Steel City Painting And Handyman" },
-  twitter: { card: "summary_large_image", title: "Steel City Painting And Handyman - Trusted House Painter", description: "Direct, owner-operated painting and handyman services in Hamilton, ON." },
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: "https://steelcityservices.ca/",
+    title: "Steel City Painting And Handyman - Trusted House Painter",
+    description: "15+ years of honest, owner-operated painting and handyman work in Hamilton, Ontario.",
+    siteName: "Steel City Painting And Handyman",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Steel City Painting And Handyman - Trusted House Painter",
+    description: "Direct, owner-operated painting and handyman services in Hamilton, ON.",
+  },
   robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  return <html lang="en" className={`${inter.variable} h-full antialiased`} data-theme="industrial"><body className="min-h-full flex flex-col"><ThemeProvider><JsonLd />{children}</ThemeProvider></body></html>;
+  return (
+    <html lang="en" className={`${inter.variable} h-full antialiased`} data-theme="industrial">
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider><JsonLd />{children}</ThemeProvider>
+      </body>
+    </html>
+  );
 }
