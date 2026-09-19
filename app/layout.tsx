@@ -7,14 +7,15 @@ import { JsonLd } from "@/components/JsonLd";
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
 
 export const metadata: Metadata = {
-  title: "Steel City Painting & Handyman Services | Hamilton, ON",
-  description: "Owner-operated residential painting, drywall repair, trim work, and handyman services in Hamilton and surrounding communities. Brent brings 15+ years of hands-on experience.",
-  keywords: ["Hamilton painter", "Hamilton handyman", "residential painting Hamilton", "drywall repair Hamilton", "interior painting Ancaster"],
-  authors: [{ name: "Brent - Steel City Painting" }],
-  creator: "Steel City Painting & Handyman Services",
+  title: "Steel City Painting And Handyman - Trusted House Painter",
+  description: "15+ years of trusted interior & exterior painting and handyman services in Hamilton, ON. Verified profile on Trusted House Painter. Direct quality by Brent.",
+  keywords: ["Hamilton painter", "Hamilton handyman", "interior painting Hamilton", "drywall repair Hamilton", "exterior painting Hamilton"],
+  authors: [{ name: "Brent - Steel City Painting And Handyman" }],
+  creator: "Steel City Painting And Handyman",
   metadataBase: new URL("https://steelcityservices.ca/"),
   alternates: { canonical: "/" },
-  openGraph: { type: "website", locale: "en_CA", url: "https://steelcityservices.ca", title: "Steel City Painting & Handyman Services | Hamilton, ON", description: "Straightforward residential painting and handyman work from an experienced, owner-operated contractor.", siteName: "Steel City Painting & Handyman Services" },
+  openGraph: { type: "website", locale: "en_CA", url: "https://steelcityservices.ca/", title: "Steel City Painting And Handyman - Trusted House Painter", description: "15+ years of honest, owner-operated painting and handyman work in Hamilton, Ontario.", siteName: "Steel City Painting And Handyman" },
+  twitter: { card: "summary_large_image", title: "Steel City Painting And Handyman - Trusted House Painter", description: "Direct, owner-operated painting and handyman services in Hamilton, ON." },
   robots: { index: true, follow: true },
 };
 
