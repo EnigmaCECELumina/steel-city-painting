@@ -1,3 +1,3 @@
-:HL["/steel-city-painting/_next/static/chunks/1x80scc15-_ey.css","style"]
+:HL["/steel-city-painting/_next/static/chunks/20ee6x7s2rk_0.css","style"]
 :HL["/steel-city-painting/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"privacy","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"AGvQ98AactfZB2d1FXY-G"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"privacy","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"WuNdVS_PSpKNdY0cEpA0D"}
