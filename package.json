@@ -31,3 +31,10 @@
     "unrs-resolver@1.12.2": true
   }
 }
+
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start"
+}
+
