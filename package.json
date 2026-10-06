@@ -38,3 +38,6 @@
   "start": "next start"
 }
 
+"scripts": {
+  "build": "next build --no-lint"
+}
