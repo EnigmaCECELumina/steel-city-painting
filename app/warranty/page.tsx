@@ -15,7 +15,7 @@ export default function WarrantyPage() {
       <Header />
       <main className="flex-1 pt-32">
         {/* Not legal advice. Have a lawyer review this before publishing. */}
-        <article className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-2xl">
+        <article className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-3xl">
           <h1 className="text-4xl font-bold text-accent mb-8">The 3-Year Warranty</h1>
           <p className="text-lg text-zinc-300 mb-8">
             Every painting job comes with a written 3-year workmanship warranty. Here's exactly what that means.
