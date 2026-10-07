@@ -1,15 +1,16 @@
 import type { NextConfig } from "next";
-const isGithubActions = Boolean(process.env.GITHUB_ACTIONS);
-const repo = 'steel-city-painting';
-const nextConfig: NextConfig = { output: 'export', basePath: isGithubActions ? `/${repo}` : '', assetPrefix: isGithubActions ? `/${repo}/` : undefined, images: { unoptimized: true } };
-export default nextConfig;
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
+const isGithubPages = Boolean(process.env.GITHUB_PAGES);
+const repo = "steel-city-painting";
+
+const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },
+  basePath: isGithubPages ? `/${repo}` : "",
+  assetPrefix: isGithubPages ? `/${repo}/` : "",
 };
 
-module.exports = nextConfig;
+export default nextConfig;
