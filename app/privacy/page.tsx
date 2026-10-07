@@ -1,121 +1,87 @@
-import React from 'react';
-import Link from 'next/link';
-import { Shield, Eye, Lock, Camera } from 'lucide-react';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import type { Metadata } from "next";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
-export const metadata = {
-  title: 'Privacy Policy | Steel City Painting',
-  description: 'Privacy policy and client data protection practices for Steel City Painting & Handyman Services.',
+export const metadata: Metadata = {
+  title: "Privacy Policy | Steel City Painting & Handyman",
+  description: "What information this site collects and how it's used.",
+  robots: { index: true, follow: true },
 };
 
 export default function PrivacyPage() {
+  const currentDate = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 pt-28 pb-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <div className="mb-8">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-sm text-accent hover:text-accent-secondary transition-colors font-medium"
-            >
-              &larr; Return to Home
-            </Link>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-foreground mt-4 mb-3">
-              Privacy Policy
-            </h1>
-            <p className="text-muted-foreground text-sm sm:text-base">
-              Effective Date: September 2026 &bull; Steel City Painting &amp; Handyman Services
-            </p>
-          </div>
+      <main className="flex-1 pt-32">
+        {/* Not legal advice. Have a lawyer review this before publishing. */}
+        <article className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-3xl">
+          <h1 className="text-4xl font-bold text-accent mb-2">Privacy Policy</h1>
+          <p className="text-sm text-zinc-400 mb-8">Last updated: {currentDate}</p>
 
-          <div className="p-8 rounded-2xl bg-card border border-border space-y-8 text-sm sm:text-base leading-relaxed text-foreground/90">
-            <section>
-              <h2 className="text-xl font-bold font-serif text-foreground mb-3 flex items-center gap-2">
-                <Shield className="w-5 h-5 text-accent" />
-                1. Our Commitment to Your Privacy
-              </h2>
-              <p className="text-muted-foreground">
-                At Steel City Painting &amp; Handyman Services, we respect your right to privacy. As a residential contractor working inside private homes across Hamilton and the Greater Golden Horseshoe, we treat our clients&apos; personal information with the same high level of discretion and protection that we treat their physical properties.
+          <section className="space-y-8">
+            <div>
+              <h2 className="text-2xl font-bold text-zinc-100 mb-4">What we collect</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                Only what you send through the contact form or by email or phone: your name, phone number or email, your address or neighbourhood, a description of the job, and any photos you attach.
               </p>
-            </section>
+            </div>
 
-            <section>
-              <h2 className="text-xl font-bold font-serif text-foreground mb-3 flex items-center gap-2">
-                <Eye className="w-5 h-5 text-accent" />
-                2. Information We Collect
-              </h2>
-              <p className="text-muted-foreground mb-3">
-                We only collect personal information that you voluntarily supply when communicating with us:
+            <div>
+              <h2 className="text-2xl font-bold text-zinc-100 mb-4">How it's used</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                To reply to you, give you a price, and schedule and complete the work. That's it.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-muted-foreground text-sm">
-                <li><strong className="text-foreground">Contact Details:</strong> Your name, phone number, and email address submitted through our inquiry form or direct phone call.</li>
-                <li><strong className="text-foreground">Service Address:</strong> Your home or site address required to conduct in-person consultations, assess project scope, and deliver services.</li>
-                <li><strong className="text-foreground">Project Details &amp; Photos:</strong> Client-provided photos of rooms, surfaces, drywall damage, or cabinet layouts submitted for preliminary estimating.</li>
-                <li><strong className="text-foreground">Billing Records:</strong> Transaction histories and invoices necessary for accounting and tax compliance. We do not store sensitive payment card details on our servers.</li>
-              </ul>
-            </section>
+            </div>
 
-            <section>
-              <h2 className="text-xl font-bold font-serif text-foreground mb-3 flex items-center gap-2">
-                <Lock className="w-5 h-5 text-accent" />
-                3. How We Use Your Information &amp; No-Sale Policy
-              </h2>
-              <p className="text-muted-foreground mb-3">
-                Your personal details are used strictly to:
+            <div>
+              <h2 className="text-2xl font-bold text-zinc-100 mb-4">What we don't do</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                We don't sell your information. We don't share it with advertisers. We don't send marketing emails you didn't ask for.
               </p>
-              <ul className="list-disc pl-5 space-y-1 text-muted-foreground text-sm mb-4">
-                <li>Formulate and deliver written quotes and work orders.</li>
-                <li>Coordinate arrival windows and progress notifications.</li>
-                <li>Provide post-project warranty documentation.</li>
-              </ul>
-              <div className="p-4 rounded-xl bg-muted border border-border">
-                <p className="font-semibold text-foreground text-sm">
-                  We will NEVER sell, rent, trade, or distribute your private contact details, address, or phone number to any third-party marketing networks, contractors, or data brokers.
-                </p>
-              </div>
-            </section>
+            </div>
 
-            <section>
-              <h2 className="text-xl font-bold font-serif text-foreground mb-3 flex items-center gap-2">
-                <Camera className="w-5 h-5 text-accent" />
-                4. Residential Portfolio Photography Policy
-              </h2>
-              <p className="text-muted-foreground mb-3">
-                We document our prep work and finished transformations to showcase craftsmanship to prospective clients. When taking photos of work completed in your residence:
+            <div>
+              <h2 className="text-2xl font-bold text-zinc-100 mb-4">Who sees it</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                Brent. If a service handles the contact form or hosts the site, they process the data to deliver it. [Fill in the form service, e.g. Formspree/Netlify, once chosen.]
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-muted-foreground text-sm">
-                <li><strong className="text-foreground">Anonymity &amp; Privacy:</strong> We strictly avoid photographing house numbers, street signs, vehicle license plates, personal family portraits, diplomas, or confidential documents.</li>
-                <li><strong className="text-foreground">Homeowner Opt-Out:</strong> If you prefer that photos of your home interior or exterior not be featured on our website or social media channels, simply notify us in writing and we will fully honor your preference with zero reservations.</li>
-              </ul>
-            </section>
+            </div>
 
-            <section>
-              <h2 className="text-xl font-bold font-serif text-foreground mb-3">
-                5. Website Analytics &amp; Cookies
-              </h2>
-              <p className="text-muted-foreground text-sm">
-                Our website may utilize standard, non-invasive performance cookies (such as basic visitor analytics) to evaluate website traffic and ensure optimal page loading speed. You can configure your browser to decline cookies at any time without impacting site navigation.
+            <div>
+              <h2 className="text-2xl font-bold text-zinc-100 mb-4">Photos</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                Photos you send are used only to quote and complete your job. They may be kept in Brent's records of the job. [Brent to confirm retention, e.g. "for the length of the warranty period."]
               </p>
-            </section>
+            </div>
 
-            <section>
-              <h2 className="text-xl font-bold font-serif text-foreground mb-3">
-                6. Contacting Us Regarding Your Privacy
-              </h2>
-              <p className="text-muted-foreground text-sm">
-                If you have questions regarding our privacy practices or wish to review or delete any contact details we have on file, please contact:
+            <div>
+              <h2 className="text-2xl font-bold text-zinc-100 mb-4">Cookies and analytics</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                [If no analytics: "This site doesn't use tracking cookies."] [If analytics are added, name the tool and what it tracks.]
               </p>
-              <div className="mt-3 p-4 rounded-xl bg-muted border border-border text-sm">
-                <strong className="text-foreground">Steel City Painting &amp; Handyman Services</strong><br />
-                Email: <a href="mailto:inquiries@steelcityservices.ca" className="text-accent underline">inquiries@steelcityservices.ca</a><br />
-                Phone: <a href="tel:2897752020" className="text-accent underline">(289) 775-2020</a><br />
-                Service Area: Hamilton, Ontario, Canada
-              </div>
-            </section>
-          </div>
-        </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-zinc-100 mb-4">Your rights</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                You can ask to see, correct, or delete the information we have about you. Email [EMAIL] and it'll be handled within [30] days.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-zinc-100 mb-4">Contact</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                Steel City Painting & Handyman, Hamilton, Ontario. [EMAIL]
+              </p>
+            </div>
+          </section>
+        </article>
       </main>
       <Footer />
     </div>
