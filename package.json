@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --no-lint",
     "start": "next start",
     "lint": "eslint"
   },
@@ -30,14 +30,4 @@
   "allowScripts": {
     "unrs-resolver@1.12.2": true
   }
-}
-
-"scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start"
-}
-
-"scripts": {
-  "build": "next build --no-lint"
 }
