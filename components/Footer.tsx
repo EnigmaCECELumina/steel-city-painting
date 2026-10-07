@@ -38,18 +38,14 @@ export function Footer() {
             <div className="flex flex-col gap-3 text-sm text-zinc-400">
               <a href={profile} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent">Verified Trusted House Painter profile <ExternalLink className="w-3 h-3" /></a>
               <a href={yelp} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent">View Yelp listing <ExternalLink className="w-3 h-3" /></a>
+              <Link href="/warranty" className="hover:text-accent">Warranty</Link>
+              <Link href="/privacy" className="hover:text-accent">Privacy</Link>
+              <Link href="/terms" className="hover:text-accent">Terms</Link>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-zinc-800 text-xs text-zinc-500 flex flex-col gap-3">
-          <div className="flex flex-wrap items-center gap-3 transition-colors">
-            <Link href="/warranty" className="hover:text-accent">Warranty</Link>
-            <span>|</span>
-            <Link href="/privacy" className="hover:text-accent">Privacy</Link>
-            <span>|</span>
-            <Link href="/terms" className="hover:text-accent">Terms</Link>
-          </div>
+        <div className="mt-12 pt-6 border-t border-zinc-800 text-xs text-zinc-500 flex flex-col gap-3">
           <span>© {new Date().getFullYear()} Steel City Painting & Handyman. All rights reserved.</span>
         </div>
       </div>
