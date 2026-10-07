@@ -36,7 +36,7 @@ export default function TermsPage() {
             <div>
               <h2 className="text-2xl font-bold text-zinc-100 mb-4">Quotes</h2>
               <p className="text-zinc-300 leading-relaxed">
-                Quotes are provided in writing and are based on the information and photos you send. If the job turns out to differ from what was described, Brent will tell you before any extra work is done. Quotes are valid for [30] days unless stated otherwise.
+                Quotes are provided in writing and are based on the information and photos you send. If the job turns out to differ from what was described, Brent will tell you before any extra work is done.
               </p>
             </div>
 
