@@ -1,52 +1,52 @@
 'use client';
 
 import Link from 'next/link';
-import { ExternalLink, Mail, MapPin, Phone } from 'lucide-react';
-
-const profile = 'https://app.trustedhousepainter.com/viewPainterProfile/SteelCityPaintingAndHandyman';
-const yelp = 'https://www.yelp.ca/biz/steel-city-hamilton-4';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export function Footer() {
-  const areas = ['Hamilton', 'Ancaster', 'Dundas', 'Stoney Creek', 'Grimsby', 'Burlington', 'Oakville'];
-
   return (
-    <footer className="bg-black text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-card border-t border-border">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <div className="font-extrabold text-xl">STEEL CITY <span className="text-accent">■</span></div>
-            <div className="text-[10px] tracking-[0.16em] text-zinc-500 mt-1">PAINTING AND HANDYMAN</div>
-            <p className="text-sm text-zinc-400 leading-relaxed mt-5">Straightforward painting and repair work for Hamilton-area homes, handled directly by Brent.</p>
+            <h3 className="text-lg font-extrabold mb-4">Steel City Painting</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Professional painting and handyman services in Hamilton, ON. 15+ years of trusted, owner-operated work.
+            </p>
           </div>
 
           <div>
-            <h3 className="font-extrabold text-accent mb-4">Contact</h3>
-            <div className="space-y-3 text-sm text-zinc-400">
-              <a href="tel:2897752020" className="flex gap-3 hover:text-accent"><Phone className="w-4 h-4" />(289) 775-2020</a>
-              <a href="mailto:inquiries@steelcityservices.ca" className="flex gap-3 hover:text-accent"><Mail className="w-4 h-4" />inquiries@steelcityservices.ca</a>
-              <div className="flex gap-3"><MapPin className="w-4 h-4" />Hamilton, Ontario</div>
-            </div>
+            <h4 className="font-bold mb-4">Quick Links</h4>
+            <nav className="space-y-2">
+              <Link href="/#services" className="text-sm text-muted-foreground hover:text-accent transition-colors block">Services</Link>
+              <Link href="/#about" className="text-sm text-muted-foreground hover:text-accent transition-colors block">About</Link>
+              <Link href="/#contact" className="text-sm text-muted-foreground hover:text-accent transition-colors block">Contact</Link>
+              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-accent transition-colors block">Privacy</Link>
+              <Link href="/terms" className="text-sm text-muted-foreground hover:text-accent transition-colors block">Terms</Link>
+            </nav>
           </div>
 
           <div>
-            <h3 className="font-extrabold text-accent mb-4">Service area</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed">{areas.join(' · ')}</p>
-          </div>
-
-          <div>
-            <h3 className="font-extrabold text-accent mb-4">Find Steel City</h3>
-            <div className="flex flex-col gap-3 text-sm text-zinc-400">
-              <a href={profile} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent">Verified Trusted House Painter profile <ExternalLink className="w-3 h-3" /></a>
-              <a href={yelp} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent">View Yelp listing <ExternalLink className="w-3 h-3" /></a>
-              <Link href="/warranty" className="hover:text-accent">Warranty</Link>
-              <Link href="/privacy" className="hover:text-accent">Privacy</Link>
-              <Link href="/terms" className="hover:text-accent">Terms</Link>
+            <h4 className="font-bold mb-4">Contact</h4>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <a href="tel:2897752020" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <Phone className="w-4 h-4" />
+                (289) 775-2020
+              </a>
+              <a href="mailto:inquiries@steelcityservices.ca" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <Mail className="w-4 h-4" />
+                inquiries@steelcityservices.ca
+              </a>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>Hamilton, ON</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-zinc-800 text-xs text-zinc-500 flex flex-col gap-3">
-          <span>© {new Date().getFullYear()} Steel City Painting & Handyman. All rights reserved.</span>
+        <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} Steel City Painting & Handyman Services. All rights reserved.</p>
         </div>
       </div>
     </footer>
