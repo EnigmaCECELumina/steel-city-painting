@@ -64,7 +64,7 @@ export default function TermsPage() {
             <div>
               <h2 className="text-2xl font-bold text-zinc-100 mb-4">Service area</h2>
               <p className="text-zinc-300 leading-relaxed">
-                Work is offered in Stinson, Beasley, Central, Kirkendall, Barton, Keith and Janesville. Other areas are at Brent's discretion.
+                Work is offered in Stinson, Beasley, Central, Kirkendall, Barton, Keith and Jamesville. Other areas are at Brent's discretion.
               </p>
             </div>
 
