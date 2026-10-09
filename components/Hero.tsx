@@ -1,61 +1,35 @@
 'use client';
 
-import { ArrowRight, BadgeCheck, CheckCircle, MapPin, ShieldCheck, UserCheck } from 'lucide-react';
-
-const profile = 'https://app.trustedhousepainter.com/viewPainterProfile/SteelCityPaintingAndHandyman';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 sm:pt-40 sm:pb-24 bg-background">
-      <div className="absolute inset-0 architectural-pattern -z-10" />
-
+    <section className="relative py-28 sm:py-40 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-2 border border-accent/50 text-accent text-xs font-bold uppercase tracking-wider mb-6">
-              <UserCheck className="w-4 h-4" />
-              Direct owner-operated service
-            </div>
+        <div className="max-w-3xl">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+            Professional painting & handyman services in Hamilton
+          </h1>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[0.98] mb-6">
-              Steel City Painting And Handyman — <span className="text-accent">Trusted House Painter</span>
-            </h1>
+          <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
+            15+ years of trusted interior and exterior painting, drywall repair, and handyman work. Owner-operated, no crew, no surprises.
+          </p>
 
-            <p className="text-lg sm:text-xl text-zinc-300 max-w-xl mb-8 leading-relaxed">
-              15+ years of honest, on-site craftsmanship in Hamilton. Interior and exterior painting plus reliable home repairs, done right the first time.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-black font-bold hover:bg-white transition-colors">
-                Request free estimate
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a href={profile} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-zinc-500 font-bold text-white hover:border-accent hover:text-accent transition-colors">
-                <BadgeCheck className="w-5 h-5" />
-                View verified profile
-              </a>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 max-w-lg text-sm font-semibold text-zinc-200">
-              <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-accent" /> 15+ years experience</span>
-              <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-accent" /> WHMIS & safety minded</span>
-              <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-accent" /> Hamilton area</span>
-              <span className="flex items-center gap-2"><UserCheck className="w-4 h-4 text-accent" /> Brent on every job</span>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-slate-900 font-bold rounded-lg hover:bg-opacity-90 transition-colors">
+              Get free estimate
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <a href="tel:2897752020" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-border rounded-lg font-bold hover:bg-muted transition-colors">
+              Call (289) 775-2020
+            </a>
           </div>
 
-          <div className="bg-card border border-border p-7 sm:p-10 shadow-2xl">
-            <div className="flex items-center gap-3 text-accent text-sm font-bold uppercase tracking-widest mb-5">
-              <BadgeCheck className="w-5 h-5" />
-              Verified local contractor
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold mb-5">Good prep is what makes a paint job last.</h2>
-            <p className="text-zinc-300 leading-relaxed mb-7">
-              Scraping, patching, sanding, priming, and protecting your home are not extras. They are the work. Brent brings a practical eye, steady communication, and respect for the space he is working in.
-            </p>
-            <a href={profile} target="_blank" rel="noreferrer" className="text-accent font-bold hover:text-white">
-              View verified profile on Trusted House Painter →
-            </a>
+          <div className="grid grid-cols-2 gap-4 max-w-md text-sm font-semibold">
+            <span className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-accent flex-shrink-0" /> 15+ years experience</span>
+            <span className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-accent flex-shrink-0" /> Owner-operated</span>
+            <span className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-accent flex-shrink-0" /> Hamilton area</span>
+            <span className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-accent flex-shrink-0" /> Free estimates</span>
           </div>
         </div>
       </div>
