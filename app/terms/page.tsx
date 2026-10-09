@@ -83,11 +83,11 @@ export default function TermsPage() {
             </div>
 
             <div>
-  <h2 className="text-2xl font-bold text-zinc-100 mb-4">Limits</h2>
-  <p className="text-zinc-300 leading-relaxed">
-    This site is provided as-is. Nothing here replaces your rights under Ontario law. These terms are governed by the laws of Ontario.
-  </p>
-</div>
+              <h2 className="text-2xl font-bold text-zinc-100 mb-4">Limits</h2>
+              <p className="text-zinc-300 leading-relaxed">
+                This site is provided as-is. Nothing here replaces your rights under Ontario law. These terms are governed by the laws of Ontario.
+              </p>
+            </div>
 
             <div>
               <h2 className="text-2xl font-bold text-zinc-100 mb-4">Contact</h2>
@@ -98,7 +98,7 @@ export default function TermsPage() {
           </section>
         </article>
       </main>
-      </Footer>
+      <Footer />
     </div>
   );
 }
