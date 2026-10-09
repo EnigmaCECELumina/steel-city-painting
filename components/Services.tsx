@@ -1,57 +1,43 @@
 'use client';
 
-import { CheckCircle2, Hammer, House, Paintbrush, Wrench } from 'lucide-react';
+import { Hammer, Paintbrush, Wrench } from 'lucide-react';
 
 const services = [
   {
     icon: Paintbrush,
-    title: 'Interior & exterior painting',
-    description: 'Walls, ceilings, doors, trim, siding, and cabinets—prepared properly and finished with care.',
-    features: ['Colour changes and repainting', 'Trim, doors, and baseboards', 'Exterior touch-ups and staining'],
+    title: 'Interior & Exterior Painting',
+    description: 'Professional painting for walls, ceilings, doors, trim, siding, and cabinets with expert prep and finishing.',
   },
   {
     icon: Hammer,
-    title: 'Drywall & plaster repair',
-    description: 'Repairing holes, dents, cracks, water damage patches, seams, and tired surfaces before paint goes on.',
-    features: ['Patching and feathering', 'Minor plaster and drywall work', 'Sanding and spot priming'],
+    title: 'Drywall & Plaster Repair',
+    description: 'Quality repairs for holes, cracks, water damage, and worn surfaces before painting.',
   },
   {
     icon: Wrench,
-    title: 'General handyman work',
-    description: 'Practical repairs and maintenance that help keep a home safe, functional, and looking its best.',
-    features: ['Fixtures and hardware', 'Small carpentry and trim', 'Doors, caulking, and punch lists'],
+    title: 'General Handyman Work',
+    description: 'Reliable repairs and maintenance to keep your home safe, functional, and looking its best.',
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="py-20 sm:py-28 bg-white text-zinc-900">
+    <section id="services" className="py-20 sm:py-28 bg-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-12">
-          <p className="text-yellow-700 text-sm font-bold uppercase tracking-widest mb-3">What Brent does</p>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">Useful work for real homes.</h2>
-          <p className="text-zinc-600 text-lg leading-relaxed">
-            Not every project needs a big crew. These are the painting, repair, and finishing jobs that benefit from experience and a steady hand.
-          </p>
+        <div className="max-w-2xl mb-16">
+          <p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">Services</p>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">What we offer</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {services.map(({ icon: Icon, title, description, features }) => (
-            <article key={title} className="p-6 border border-zinc-200 hover:border-yellow-500 hover:shadow-xl transition-all">
-              <div className="w-11 h-11 bg-yellow-400 flex items-center justify-center mb-5">
-                <Icon className="w-5 h-5" />
+        <div className="grid md:grid-cols-3 gap-8">
+          {services.map(({ icon: Icon, title, description }) => (
+            <div key={title} className="p-6 border border-border rounded-lg hover:border-accent transition-colors">
+              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
+                <Icon className="w-6 h-6 text-slate-900" />
               </div>
               <h3 className="text-xl font-extrabold mb-3">{title}</h3>
-              <p className="text-zinc-600 text-sm leading-relaxed mb-5">{description}</p>
-              <ul className="space-y-2">
-                {features.map((feature) => (
-                  <li key={feature} className="flex gap-2 text-sm font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-yellow-700 shrink-0 mt-0.5" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </article>
+              <p className="text-muted-foreground leading-relaxed">{description}</p>
+            </div>
           ))}
         </div>
       </div>
