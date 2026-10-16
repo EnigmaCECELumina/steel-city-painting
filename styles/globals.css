@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --gold: #D0A84E;
+  --brass: #C6973B;
+  --amber: #F3C44E;
+}
+
+@layer base{
+  body{ @apply bg-obsidian text-offwhite font-sans antialiased }
+}
+
+@layer components{
+  .btn-primary{
+    @apply inline-block font-extrabold rounded-md text-black px-6 py-3 bg-gradient-to-br from-amber to-brass shadow-gold-glow;
+  }
+  .btn-phone{ @apply inline-block border border-white/6 rounded-md px-4 py-2 font-semibold }
+}
+
+@layer utilities{
+  .gold-glow{ text-shadow: 0 0 8px rgba(243,196,78,.25), 0 0 18px rgba(243,196,78,.18), 0 0 38px rgba(243,196,78,.12); }
+  .soft-neon{ text-shadow: 0 0 12px rgba(243,196,78,.16), 0 0 30px rgba(243,196,78,.10); }
+}
